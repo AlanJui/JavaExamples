@@ -1,20 +1,92 @@
-interface /*«Å§i¦¨interface*/ IDisposable //  ¤£¯à«Ø¥ßª«¥óªº°Ñ¦Ò«¬ºA 
-{
-    public void f1() ;
-    public void f2 ();
+interface Machine  {
+
+    public void charge();       // å……é›»
+    public void makeNoise();	// ç™¼è²
 }
-abstract class Middle
- implements /* IDisposable¥u¯à³Qimplements */ IDisposable {
-    public void f3() { }
+
+/* ============================================================ */
+
+//class Bottom  extends IDisposable ==> ç‚ºéŒ¯èª¤çš„èªžæ³•
+class RobotMan implements Machine {
+	
+    public void charge() {
+    	System.out.println("It needs 10 hours to complete charge.");
+    }
+    
+    public void makeNoise() {
+    	System.out.println("Wow! Wow! ");
+    }
 }
-class Bottom extends Middle {
-    public void f1 ( ) { }
-    public void f2 ( ) { }
+
+/* ============================================================ */
+
+class ToyCar implements Machine {
+
+	@Override
+	public void charge() {
+		// TODO Auto-generated method stub
+		System.out.println("It needs 2 hours to complete charge.");
+	}
+
+	@Override
+	public void makeNoise() {
+		// TODO Auto-generated method stub
+		System.out.println("Tseng! Tseng!");
+	}
+	
 }
-class m6_demo_INTERFACE {
- public static void main(String[] args) {
-    IDisposable   R ;
-    // R = new IDisposable() ; // ¿ù
-    R = new Bottom(); //¥i¦s¦Û¤v«¬ºAªº°Ñ¦Ò­È©Î¬O¤l®]«¬ºAªº°Ñ¦Ò­È
-  }
+
+/* ============================================================ */
+
+abstract class Animal {
+	public abstract void bark();
+	public abstract void eat();
+}
+
+class RobotDog extends Animal
+	implements Machine {
+
+	@Override
+	public void charge() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void makeNoise() {
+		// TODO Auto-generated method stub
+		System.out.println("Wang~~~! Wang~~~!");
+	}
+
+	@Override
+	public void bark() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eat() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+/* ================================================= */
+
+class m6_lab_INTERFACE {
+	
+	 public static void main(String[] args) {
+		Machine myToy ;
+		
+		myToy = new RobotMan();
+		myToy.makeNoise();
+		
+		myToy = new ToyCar();
+		myToy.makeNoise();
+	
+		myToy = new RobotDog();
+		myToy.makeNoise();
+		
+	 }
 }
